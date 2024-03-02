@@ -62,14 +62,6 @@ window.addEventListener('DOMContentLoaded',() => {
                     announcer.innerHTML = 'TIE';   
         }
         announcer.classList.remove('hide');
-
-        if (type === PLAYERX_WON || type === PLAYERO_WON) {
-            const container = document.querySelector('.background');
-            const sparkles = document.createElement('div');
-            sparkles.classList.add('sparkle');
-            container.appendChild(sparkles);
-        }
-
     };
 
     const isValidAction = (tile) => {
@@ -86,7 +78,6 @@ window.addEventListener('DOMContentLoaded',() => {
 
     const changePlayer = () => {
         playerDisplay.classList.remove(`player${currentPlayer}`);
-
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         playerDisplay.innerText = currentPlayer;
         playerDisplay.classList.add(`player${currentPlayer}`);
@@ -116,9 +107,6 @@ window.addEventListener('DOMContentLoaded',() => {
             tile.classList.remove('playerX');
             tile.classList.remove('playerO');
         });
-
-        const sparkles = document.querySelectorAll('.sparkle');
-        sparkles.forEach(sparkle => sparkle.remove());
     }
 
     tiles.forEach( (tile, index) => {
